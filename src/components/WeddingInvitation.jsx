@@ -296,7 +296,6 @@ export default function WeddingInvitation() {
   const [showScrollHint, setShowScrollHint] = useState(true);
   const [countdown, setCountdown]       = useState(calcCountdown);
   const [lang, setLang]                 = useState("sq");
-  const [scrollLocked, setScrollLocked] = useState(false);
 
   const introRef    = useRef(null);
   const sectionsRef = useRef([]);
@@ -348,8 +347,6 @@ export default function WeddingInvitation() {
     setFadeOut(true);
     setTimeout(() => {
       setStage("details");
-      setScrollLocked(true);
-      setTimeout(() => setScrollLocked(false), 800);
     }, 500);
   };
 
@@ -392,7 +389,7 @@ export default function WeddingInvitation() {
 
   // ── DETAILS ─────────────────────────────────────────────────
   return (
-    <div className="inv-page" style={ scrollLocked ? { overflow:"hidden", height:"100vh", touchAction:"none" } : {} }>
+    <div className="inv-page">
       <style>{STYLES}</style>
 
       {/* Language switcher */}
