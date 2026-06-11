@@ -706,7 +706,10 @@ export default function WeddingInvitation() {
           <p className="font-script" style={{ fontSize:"40px", color:"var(--gold)", margin:"36px 0 0" }}>
             Arben & Sumeja
           </p>
-          <p className="font-caps" style={{ fontSize:"14px", color:"var(--muted)", letterSpacing:".25em", margin:"8px 0 0" }}>
+          <p className="font-serif" style={{ fontSize:"16px", fontStyle:"italic", color:"var(--muted)", margin:"10px 0 0" }}>
+            Me rrespekt, familja Nuredini
+          </p>
+          <p className="font-caps" style={{ fontSize:"14px", color:"var(--muted)", letterSpacing:".25em", margin:"10px 0 0" }}>
             08 · 08 · 2026
           </p>
         </div>
