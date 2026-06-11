@@ -143,7 +143,6 @@ const STYLES = `
     opacity: 0;
     transform: translateY(44px);
     transition: opacity .9s cubic-bezier(.4,0,.2,1), transform .9s cubic-bezier(.4,0,.2,1);
-    will-change: opacity, transform;
   }
   .reveal.visible {
     opacity: 1;
@@ -202,20 +201,20 @@ const STYLES = `
 
   /* ── FLOATING HEARTS ── */
   .floating-hearts { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-  .floating-heart  { position: absolute; bottom: -30px; animation: floatUp 6s ease-in infinite; }
+  .floating-heart  {
+    position: absolute; bottom: -30px;
+    animation: floatUp 6s ease-in infinite;
+    will-change: transform;
+  }
   @keyframes floatUp {
-    0%   { transform: translateY(0) rotate(0deg);   opacity: 0; }
+    0%   { transform: translate3d(0,0,0) rotate(0deg);   opacity: 0; }
     10%  { opacity: .35; }
     90%  { opacity: .35; }
-    100% { transform: translateY(-105vh) rotate(360deg); opacity: 0; }
+    100% { transform: translate3d(0,-105vh,0) rotate(360deg); opacity: 0; }
   }
 
-  /* ── GLOW ── */
-  .glow { animation: glow 4s ease-in-out infinite; }
-  @keyframes glow {
-    0%,100% { text-shadow: 0 0 8px rgba(201,169,110,.15); }
-    50%      { text-shadow: 0 0 20px rgba(201,169,110,.45), 0 0 30px rgba(201,169,110,.25); }
-  }
+  /* ── GLOW (static — no per-frame repaint, keeps scrolling smooth) ── */
+  .glow { text-shadow: 0 0 16px rgba(201,169,110,.35); }
 
   /* ── IMAGE FRAME ── */
   .img-frame {
@@ -235,9 +234,8 @@ const STYLES = `
     border-radius: 999px;
     overflow: hidden;
     border: 1px solid rgba(201,169,110,.5);
-    background: rgba(245,239,230,.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(245,239,230,.96);
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
   }
   .lang-btn {
     padding: 6px 14px;
