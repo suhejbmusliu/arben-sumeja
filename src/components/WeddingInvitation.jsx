@@ -428,7 +428,7 @@ export default function WeddingInvitation() {
         <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(30,20,10,.72) 0%, rgba(30,20,10,.18) 45%, transparent 100%)" }} />
 
         {/* Names overlay */}
-        <div style={{ position:"relative", zIndex:2, textAlign:"center", paddingBottom:"52px", width:"100%" }}>
+        <div style={{ position:"relative", zIndex:2, textAlign:"center", paddingBottom:"170px", width:"100%" }}>
           <h1 className="font-script" style={{ fontSize:"clamp(62px,19vw,88px)", lineHeight:1, color:"#fff", margin:0, textShadow:"0 2px 18px rgba(0,0,0,.45)" }}>
             Arben
           </h1>
