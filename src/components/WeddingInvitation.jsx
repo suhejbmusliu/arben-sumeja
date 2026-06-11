@@ -349,7 +349,7 @@ export default function WeddingInvitation() {
     setTimeout(() => {
       setStage("details");
       setScrollLocked(true);
-      setTimeout(() => setScrollLocked(false), 1800);
+      setTimeout(() => setScrollLocked(false), 800);
     }, 500);
   };
 
@@ -478,20 +478,20 @@ export default function WeddingInvitation() {
         {/* Quote overlaid inside the frame */}
         <div style={{ position:"relative", zIndex:2, textAlign:"center", width:"100%", padding:"0 52px", marginTop:"20%" }}>
 
-          <span style={{ fontFamily:"Georgia,serif", fontSize:"52px", lineHeight:"0.3", color:"var(--gold)", opacity:.45, display:"block" }}>"</span>
+          <span style={{ fontFamily:"Georgia,serif", fontSize:"68px", lineHeight:"0.3", color:"var(--gold)", opacity:.45, display:"block" }}>"</span>
 
-          <p className="font-serif" style={{ fontSize:"clamp(16px,5vw,20px)", lineHeight:1.9, fontStyle:"italic", color:"var(--ink)", margin:"14px 0 0" }}>
+          <p className="font-serif" style={{ fontSize:"clamp(22px,6.5vw,28px)", lineHeight:1.85, fontStyle:"italic", color:"var(--ink)", margin:"18px 0 0" }}>
             {lang === "sq"
               ? <>"Dashuria nuk është vetëm<br />një ndjenjë — është zgjedhja<br />që bën çdo ditë,<br />me zemër të plotë."</>
               : <>"Aşk sadece bir duygu değil —<br />her gün tam bir kalpte<br />verilen karardır."</>
             }
           </p>
 
-          <span style={{ fontFamily:"Georgia,serif", fontSize:"52px", lineHeight:"0.3", color:"var(--gold)", opacity:.45, display:"block", transform:"rotate(180deg)", marginTop:"14px" }}>"</span>
+          <span style={{ fontFamily:"Georgia,serif", fontSize:"68px", lineHeight:"0.3", color:"var(--gold)", opacity:.45, display:"block", transform:"rotate(180deg)", marginTop:"18px" }}>"</span>
 
-          <div style={{ height:1, background:"linear-gradient(to right,transparent,var(--gold),transparent)", maxWidth:140, margin:"18px auto", opacity:.45 }} />
+          <div style={{ height:1, background:"linear-gradient(to right,transparent,var(--gold),transparent)", maxWidth:160, margin:"22px auto", opacity:.45 }} />
 
-          <p className="font-script" style={{ fontSize:"28px", color:"var(--gold)", margin:0 }}>
+          <p className="font-script" style={{ fontSize:"40px", color:"var(--gold)", margin:0 }}>
             Arben & Sumeja
           </p>
         </div>
@@ -652,24 +652,24 @@ export default function WeddingInvitation() {
         <FloatingHearts />
         <div style={{ textAlign:"center", width:"100%", maxWidth:360, position:"relative", zIndex:1 }}>
 
-          <p className="font-caps" style={{ color:"var(--muted)", fontSize:"10px", letterSpacing:".3em" }}>
+          <p className="font-caps" style={{ color:"var(--muted)", fontSize:"13px", letterSpacing:".3em" }}>
             {t.location[lang]}
           </p>
 
           <div className="ornament" style={{ margin:"16px 0" }}>
-            <span style={{ color:"var(--gold)", fontSize:"14px" }}>✦</span>
+            <span style={{ color:"var(--gold)", fontSize:"16px" }}>✦</span>
           </div>
 
-          <MapPin size={30} color="#c9a96e" strokeWidth={1.5} style={{ margin:"0 auto 12px", display:"block" }} />
+          <MapPin size={36} color="#c9a96e" strokeWidth={1.5} style={{ margin:"0 auto 12px", display:"block" }} />
 
-          <h2 className="font-display" style={{ fontSize:"clamp(28px,9vw,38px)", color:"var(--ink)", fontWeight:700, margin:0 }}>
+          <h2 className="font-display" style={{ fontSize:"clamp(36px,11vw,48px)", color:"var(--ink)", fontWeight:700, margin:0 }}>
             New Star
           </h2>
 
-          <p className="font-serif" style={{ fontSize:"16px", color:"var(--muted)", margin:"6px 0 0" }}>
+          <p className="font-serif" style={{ fontSize:"21px", color:"var(--muted)", margin:"8px 0 0" }}>
             {lang === "sq" ? "Vizebego / Skopje" : "Vizebego / Skopje"}
           </p>
-          <p className="font-caps" style={{ fontSize:"11px", color:"var(--muted)", margin:"4px 0 0" }}>
+          <p className="font-caps" style={{ fontSize:"15px", color:"var(--muted)", margin:"6px 0 0" }}>
             {lang === "sq" ? "ORA 19:00" : "SAAT 19:00"}
           </p>
 
@@ -689,28 +689,28 @@ export default function WeddingInvitation() {
             />
           </div>
 
-          <button className="map-btn" onClick={openMap} style={{ margin:"24px auto 0", display:"inline-flex" }}>
-            <MapPin size={14} />
+          <button className="map-btn" onClick={openMap} style={{ margin:"24px auto 0", display:"inline-flex", fontSize:"13px", padding:"16px 38px" }}>
+            <MapPin size={16} />
             {t.openMaps[lang]}
           </button>
 
           <div className="divider-lg" style={{ margin:"28px auto" }} />
 
-          <div style={{ display:"flex", alignItems:"flex-start", gap:8, justifyContent:"center", padding:"0 4px" }}>
-            <Heart size={13} color="#c9a96e" fill="#c9a96e" style={{ flexShrink:0, marginTop:3 }} />
+          <div style={{ display:"flex", alignItems:"flex-start", gap:10, justifyContent:"center", padding:"0 4px" }}>
+            <Heart size={16} color="#c9a96e" fill="#c9a96e" style={{ flexShrink:0, marginTop:4 }} />
             <div>
-              <p className="font-serif" style={{ fontSize:"14px", lineHeight:1.7, color:"var(--muted)", margin:0 }}>
+              <p className="font-serif" style={{ fontSize:"18px", lineHeight:1.7, color:"var(--muted)", margin:0 }}>
                 {t.closing[lang]}
               </p>
             </div>
-            <Heart size={13} color="#c9a96e" fill="#c9a96e" style={{ flexShrink:0, marginTop:3 }} />
+            <Heart size={16} color="#c9a96e" fill="#c9a96e" style={{ flexShrink:0, marginTop:4 }} />
           </div>
 
           {/* Footer */}
-          <p className="font-script" style={{ fontSize:"32px", color:"var(--gold)", margin:"36px 0 0" }}>
+          <p className="font-script" style={{ fontSize:"40px", color:"var(--gold)", margin:"36px 0 0" }}>
             Arben & Sumeja
           </p>
-          <p className="font-caps" style={{ fontSize:"9px", color:"var(--muted)", letterSpacing:".25em", margin:"8px 0 0" }}>
+          <p className="font-caps" style={{ fontSize:"11px", color:"var(--muted)", letterSpacing:".25em", margin:"8px 0 0" }}>
             08 · 08 · 2026
           </p>
         </div>
