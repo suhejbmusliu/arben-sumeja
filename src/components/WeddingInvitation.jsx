@@ -332,15 +332,28 @@ export default function WeddingInvitation() {
     window.open("https://maps.app.goo.gl/WJpMtdx6Vfah7tuc8", "_blank", "noopener");
   }, []);
 
-  const handleIntroClick = async () => {
+  // Try autoplay as soon as video is ready
+  const handleVideoCanPlay = async () => {
     const v = introRef.current;
     if (!v || started) return;
+    setStarted(true);
+    try {
+      await v.play();
+    } catch (e) {
+      // autoplay blocked — wait for user tap
+      setStarted(false);
+    }
+  };
+
+  // Fallback: user taps if autoplay was blocked
+  const handleIntroClick = async () => {
+    const v = introRef.current;
+    if (!v) return;
     setStarted(true);
     try {
       v.currentTime = 0;
       await v.play();
     } catch (e) {
-      // if video fails (e.g. file missing), skip straight to details
       handleIntroEnded();
     }
   };
@@ -368,7 +381,10 @@ export default function WeddingInvitation() {
             style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover" }}
             playsInline
             muted
+            autoPlay
             preload="auto"
+            poster="/homeimg.png"
+            onCanPlay={handleVideoCanPlay}
             onEnded={handleIntroEnded}
           />
 
