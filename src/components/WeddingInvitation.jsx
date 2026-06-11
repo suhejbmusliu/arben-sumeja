@@ -283,16 +283,16 @@ const STYLES = `
 
 const INTRO_STYLES = `
   @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400&display=swap');
+  :root { --cream:#f5efe6; --gold:#c9a96e; --ink:#2c2416; --muted:#7a6a52; }
   .font-script { font-family: "Great Vibes", cursive; }
   .font-caps   { font-family: "Cormorant Garamond", serif; letter-spacing: .22em; text-transform: uppercase; }
   .intro-fadeout { opacity:0; transform:translateY(10px); transition:all 500ms ease; }
-  @keyframes pulse { 0%,100%{transform:scale(1);opacity:.9} 50%{transform:scale(1.04);opacity:1} }
+  @keyframes pulse { 0%,100%{transform:scale(1) translateX(-50%);opacity:.9} 50%{transform:scale(1.04) translateX(-50%);opacity:1} }
 `;
 
 export default function WeddingInvitation() {
   const [stage, setStage]               = useState("intro");
-  const [started, setStarted]           = useState(false);
-  const [fadeToDetails, setFadeToDetails] = useState(false);
+  const [fadeOut, setFadeOut]           = useState(false);
   const [showScrollHint, setShowScrollHint] = useState(true);
   const [countdown, setCountdown]       = useState(calcCountdown);
   const [lang, setLang]                 = useState("sq");
@@ -335,8 +335,7 @@ export default function WeddingInvitation() {
 
   const handleIntroClick = async () => {
     const v = introRef.current;
-    if (!v || started) return;
-    setStarted(true);
+    if (!v) return;
     try {
       v.currentTime = 0;
       await v.play();
@@ -346,7 +345,7 @@ export default function WeddingInvitation() {
   };
 
   const handleIntroEnded = () => {
-    setFadeToDetails(true);
+    setFadeOut(true);
     setTimeout(() => {
       setStage("details");
       setScrollLocked(true);
@@ -361,7 +360,6 @@ export default function WeddingInvitation() {
         <style>{INTRO_STYLES}</style>
 
         <div style={{ position:"absolute", inset:0, cursor:"pointer" }} onClick={handleIntroClick}>
-          {/* Video */}
           <video
             ref={introRef}
             src="/intro.mp4"
@@ -369,51 +367,23 @@ export default function WeddingInvitation() {
             playsInline
             muted
             preload="auto"
-            poster="/homeimg.png"
             onEnded={handleIntroEnded}
           />
 
           {/* Gradient overlay */}
-          <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,.15) 50%, rgba(0,0,0,.45) 100%)" }} />
+          <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(0,0,0,.7) 0%, rgba(0,0,0,.1) 50%, rgba(0,0,0,.4) 100%)" }} />
 
           {/* Black fade out */}
-          <div style={{ position:"absolute", inset:0, background:"black", opacity: fadeToDetails ? 1 : 0, transition:"opacity 500ms ease", pointerEvents:"none" }} />
+          <div style={{ position:"absolute", inset:0, background:"black", opacity: fadeOut ? 1 : 0, transition:"opacity 500ms ease", pointerEvents:"none" }} />
 
-          {/* Top names — always visible */}
-          <div style={{ position:"absolute", left:0, right:0, top:0, bottom:0, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", pointerEvents:"none" }}>
-            <div className={started ? "intro-fadeout" : ""} style={{ textAlign:"center" }}>
-              <div className="font-caps" style={{ color:"rgba(255,255,255,.7)", fontSize:"10px", letterSpacing:".3em" }}>
-                SAVE THE DATE
-              </div>
-              <div className="font-script" style={{ color:"#fff", fontSize:"clamp(56px,18vw,76px)", lineHeight:1.05, marginTop:"8px", textShadow:"0 2px 20px rgba(0,0,0,.5)" }}>
+          {/* Names + tap hint */}
+          <div style={{ position:"absolute", left:0, right:0, bottom:52, display:"flex", justifyContent:"center", padding:"0 24px" }}>
+            <div style={{ textAlign:"center" }}>
+              <div className="font-script" style={{ color:"#fff", fontSize:"clamp(52px,16vw,70px)", lineHeight:1.05, textShadow:"0 2px 16px rgba(0,0,0,.5)" }}>
                 Arben & Sumeja
               </div>
-              <div className="font-caps" style={{ color:"rgba(255,255,255,.65)", fontSize:"11px", marginTop:"10px" }}>
+              <div className="font-caps" style={{ color:"rgba(255,255,255,.6)", fontSize:"10px", marginTop:"8px", letterSpacing:".22em" }}>
                 08 · 08 · 2026
-              </div>
-            </div>
-          </div>
-
-          {/* Tap to open button — bottom */}
-          <div
-            className={started ? "intro-fadeout" : ""}
-            style={{ position:"absolute", left:0, right:0, bottom:52, display:"flex", justifyContent:"center", padding:"0 24px" }}
-          >
-            <div style={{
-              background:"rgba(255,255,255,.15)",
-              backdropFilter:"blur(10px)",
-              WebkitBackdropFilter:"blur(10px)",
-              border:"1px solid rgba(255,255,255,.35)",
-              borderRadius:"999px",
-              padding:"14px 40px",
-              textAlign:"center",
-              animation:"pulse 2s ease-in-out infinite",
-            }}>
-              <div className="font-script" style={{ color:"#fff", fontSize:"32px", lineHeight:1 }}>
-                Hap Ftesën
-              </div>
-              <div className="font-caps" style={{ color:"rgba(255,255,255,.6)", fontSize:"9px", marginTop:"4px", letterSpacing:".2em" }}>
-                {lang === "sq" ? "PREK PËR TË HAPUR" : "AÇMAK İÇİN DOKUN"}
               </div>
             </div>
           </div>
