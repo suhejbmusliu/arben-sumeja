@@ -286,6 +286,7 @@ const INTRO_STYLES = `
   .font-script { font-family: "Great Vibes", cursive; }
   .font-caps   { font-family: "Cormorant Garamond", serif; letter-spacing: .22em; text-transform: uppercase; }
   .intro-fadeout { opacity:0; transform:translateY(10px); transition:all 500ms ease; }
+  @keyframes pulse { 0%,100%{transform:scale(1);opacity:.9} 50%{transform:scale(1.04);opacity:1} }
 `;
 
 export default function WeddingInvitation() {
@@ -332,23 +333,9 @@ export default function WeddingInvitation() {
     window.open("https://maps.app.goo.gl/WJpMtdx6Vfah7tuc8", "_blank", "noopener");
   }, []);
 
-  // Try autoplay as soon as video is ready
-  const handleVideoCanPlay = async () => {
-    const v = introRef.current;
-    if (!v || started) return;
-    setStarted(true);
-    try {
-      await v.play();
-    } catch (e) {
-      // autoplay blocked — wait for user tap
-      setStarted(false);
-    }
-  };
-
-  // Fallback: user taps if autoplay was blocked
   const handleIntroClick = async () => {
     const v = introRef.current;
-    if (!v) return;
+    if (!v || started) return;
     setStarted(true);
     try {
       v.currentTime = 0;
@@ -381,10 +368,8 @@ export default function WeddingInvitation() {
             style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover" }}
             playsInline
             muted
-            autoPlay
             preload="auto"
             poster="/homeimg.png"
-            onCanPlay={handleVideoCanPlay}
             onEnded={handleIntroEnded}
           />
 
@@ -394,17 +379,41 @@ export default function WeddingInvitation() {
           {/* Black fade out */}
           <div style={{ position:"absolute", inset:0, background:"black", opacity: fadeToDetails ? 1 : 0, transition:"opacity 500ms ease", pointerEvents:"none" }} />
 
-          {/* Names */}
-          <div
-            className={started ? "intro-fadeout" : ""}
-            style={{ position:"absolute", left:0, right:0, bottom:64, display:"flex", justifyContent:"center", padding:"0 24px" }}
-          >
-            <div style={{ textAlign:"center" }}>
-              <div className="font-script" style={{ color:"#fff", fontSize:"56px", lineHeight:1.05 }}>
+          {/* Top names — always visible */}
+          <div style={{ position:"absolute", left:0, right:0, top:0, bottom:0, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", pointerEvents:"none" }}>
+            <div className={started ? "intro-fadeout" : ""} style={{ textAlign:"center" }}>
+              <div className="font-caps" style={{ color:"rgba(255,255,255,.7)", fontSize:"10px", letterSpacing:".3em" }}>
+                SAVE THE DATE
+              </div>
+              <div className="font-script" style={{ color:"#fff", fontSize:"clamp(56px,18vw,76px)", lineHeight:1.05, marginTop:"8px", textShadow:"0 2px 20px rgba(0,0,0,.5)" }}>
                 Arben & Sumeja
               </div>
               <div className="font-caps" style={{ color:"rgba(255,255,255,.65)", fontSize:"11px", marginTop:"10px" }}>
                 08 · 08 · 2026
+              </div>
+            </div>
+          </div>
+
+          {/* Tap to open button — bottom */}
+          <div
+            className={started ? "intro-fadeout" : ""}
+            style={{ position:"absolute", left:0, right:0, bottom:52, display:"flex", justifyContent:"center", padding:"0 24px" }}
+          >
+            <div style={{
+              background:"rgba(255,255,255,.15)",
+              backdropFilter:"blur(10px)",
+              WebkitBackdropFilter:"blur(10px)",
+              border:"1px solid rgba(255,255,255,.35)",
+              borderRadius:"999px",
+              padding:"14px 40px",
+              textAlign:"center",
+              animation:"pulse 2s ease-in-out infinite",
+            }}>
+              <div className="font-script" style={{ color:"#fff", fontSize:"32px", lineHeight:1 }}>
+                Hap Ftesën
+              </div>
+              <div className="font-caps" style={{ color:"rgba(255,255,255,.6)", fontSize:"9px", marginTop:"4px", letterSpacing:".2em" }}>
+                {lang === "sq" ? "PREK PËR TË HAPUR" : "AÇMAK İÇİN DOKUN"}
               </div>
             </div>
           </div>
