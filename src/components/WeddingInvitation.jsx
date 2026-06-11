@@ -441,10 +441,10 @@ export default function WeddingInvitation() {
 
           <div style={{ height:1, background:"linear-gradient(to right,transparent,rgba(255,255,255,.5),transparent)", maxWidth:200, margin:"18px auto" }} />
 
-          <p className="font-caps" style={{ color:"rgba(255,255,255,.85)", fontSize:"11px", letterSpacing:".22em", margin:0 }}>
+          <p className="font-caps" style={{ color:"rgba(255,255,255,.92)", fontSize:"15px", letterSpacing:".22em", margin:0 }}>
             {t.date[lang]}
           </p>
-          <p className="font-caps" style={{ color:"rgba(255,255,255,.65)", fontSize:"10px", letterSpacing:".18em", margin:"4px 0 0" }}>
+          <p className="font-caps" style={{ color:"rgba(255,255,255,.78)", fontSize:"13px", letterSpacing:".18em", margin:"6px 0 0" }}>
             {t.time[lang]}
           </p>
         </div>
@@ -544,7 +544,7 @@ export default function WeddingInvitation() {
       >
         <div style={{ textAlign:"center", width:"100%", maxWidth:320, position:"relative", zIndex:1 }}>
 
-          <p className="font-caps" style={{ color:"var(--muted)", fontSize:"10px", margin:"0 0 20px" }}>
+          <p className="font-caps" style={{ color:"var(--muted)", fontSize:"14px", letterSpacing:".22em", margin:"0 0 20px" }}>
             {t.couple[lang]}
           </p>
 
@@ -604,7 +604,7 @@ export default function WeddingInvitation() {
           <p className="font-script" style={{ fontSize:"clamp(32px,10vw,42px)", color:"var(--gold)", margin:0 }}>
             Arben & Sumeja
           </p>
-          <p className="font-caps" style={{ fontSize:"10px", color:"var(--muted)", letterSpacing:".22em", margin:"10px 0 0" }}>
+          <p className="font-caps" style={{ fontSize:"14px", color:"var(--muted)", letterSpacing:".22em", margin:"10px 0 0" }}>
             {lang === "sq" ? "08 · 08 · 2026" : "08 · 08 · 2026"}
           </p>
         </div>
@@ -633,7 +633,7 @@ export default function WeddingInvitation() {
 
           <div className="divider" style={{ margin:"28px auto" }} />
 
-          <p className="font-caps" style={{ color:"var(--muted)", fontSize:"9px", letterSpacing:".28em", lineHeight:2 }}>
+          <p className="font-caps" style={{ color:"var(--muted)", fontSize:"13px", letterSpacing:".28em", lineHeight:2 }}>
             {t.celebration[lang]}
           </p>
         </div>
@@ -662,10 +662,10 @@ export default function WeddingInvitation() {
             New Star
           </h2>
 
-          <p className="font-serif" style={{ fontSize:"21px", color:"var(--muted)", margin:"8px 0 0" }}>
+          <p className="font-serif" style={{ fontSize:"24px", color:"var(--muted)", margin:"8px 0 0" }}>
             {lang === "sq" ? "Vizebego / Skopje" : "Vizebego / Skopje"}
           </p>
-          <p className="font-caps" style={{ fontSize:"15px", color:"var(--muted)", margin:"6px 0 0" }}>
+          <p className="font-caps" style={{ fontSize:"17px", color:"var(--muted)", margin:"6px 0 0" }}>
             {lang === "sq" ? "ORA 19:00" : "SAAT 19:00"}
           </p>
 
@@ -706,7 +706,7 @@ export default function WeddingInvitation() {
           <p className="font-script" style={{ fontSize:"40px", color:"var(--gold)", margin:"36px 0 0" }}>
             Arben & Sumeja
           </p>
-          <p className="font-caps" style={{ fontSize:"11px", color:"var(--muted)", letterSpacing:".25em", margin:"8px 0 0" }}>
+          <p className="font-caps" style={{ fontSize:"14px", color:"var(--muted)", letterSpacing:".25em", margin:"8px 0 0" }}>
             08 · 08 · 2026
           </p>
         </div>
