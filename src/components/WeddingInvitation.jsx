@@ -356,33 +356,46 @@ export default function WeddingInvitation() {
   // ── INTRO SCREEN ────────────────────────────────────────────
   if (stage === "intro") {
     return (
-      <div style={{ position:"fixed", inset:0, background:"#000" }}>
+      <div style={{ position:"fixed", inset:0, background:"#f5efe6" }}>
         <style>{INTRO_STYLES}</style>
 
-        <div style={{ position:"absolute", inset:0, cursor:"pointer" }} onClick={handleIntroClick}>
+        <div style={{ position:"absolute", inset:0, cursor:"pointer", background:"#f5efe6", overflow:"hidden" }} onClick={handleIntroClick}>
+          {/* Poster image behind video — never a black gap while loading */}
+          <img
+            src="/homeimg.png"
+            alt=""
+            aria-hidden="true"
+            style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", transform:"scale(1.06)" }}
+          />
+
           <video
             ref={introRef}
             src="/intro.mp4"
-            style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover" }}
+            poster="/homeimg.png"
+            style={{
+              position:"absolute", inset:0, width:"100%", height:"100%",
+              objectFit:"cover",
+              transform:"scale(1.06)",  // crop any thin black border baked into the video edges
+            }}
             playsInline
             muted
             preload="auto"
             onEnded={handleIntroEnded}
           />
 
-          {/* Gradient overlay */}
-          <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(0,0,0,.7) 0%, rgba(0,0,0,.1) 50%, rgba(0,0,0,.4) 100%)" }} />
+          {/* Soft bottom gradient — only darkens the lower area for text, no heavy black */}
+          <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(40,30,15,.55) 0%, rgba(40,30,15,0) 38%)", pointerEvents:"none" }} />
 
-          {/* Black fade out */}
-          <div style={{ position:"absolute", inset:0, background:"black", opacity: fadeOut ? 1 : 0, transition:"opacity 500ms ease", pointerEvents:"none" }} />
+          {/* Fade out to CREAM (matches invitation) — no black flash on transition */}
+          <div style={{ position:"absolute", inset:0, background:"#f5efe6", opacity: fadeOut ? 1 : 0, transition:"opacity 600ms ease", pointerEvents:"none" }} />
 
           {/* Names + tap hint */}
-          <div style={{ position:"absolute", left:0, right:0, bottom:52, display:"flex", justifyContent:"center", padding:"0 24px" }}>
+          <div style={{ position:"absolute", left:0, right:0, bottom:52, display:"flex", justifyContent:"center", padding:"0 24px", opacity: fadeOut ? 0 : 1, transition:"opacity 400ms ease" }}>
             <div style={{ textAlign:"center" }}>
               <div className="font-script" style={{ color:"#fff", fontSize:"clamp(52px,16vw,70px)", lineHeight:1.05, textShadow:"0 2px 16px rgba(0,0,0,.5)" }}>
                 Arben & Sumeja
               </div>
-              <div className="font-caps" style={{ color:"rgba(255,255,255,.6)", fontSize:"10px", marginTop:"8px", letterSpacing:".22em" }}>
+              <div className="font-caps" style={{ color:"rgba(255,255,255,.65)", fontSize:"10px", marginTop:"8px", letterSpacing:".22em" }}>
                 08 · 08 · 2026
               </div>
             </div>
