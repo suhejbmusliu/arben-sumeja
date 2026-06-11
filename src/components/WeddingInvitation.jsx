@@ -141,8 +141,8 @@ const STYLES = `
   /* ── SCROLL REVEAL ── */
   .reveal {
     opacity: 0;
-    transform: translateY(44px);
-    transition: opacity .9s cubic-bezier(.4,0,.2,1), transform .9s cubic-bezier(.4,0,.2,1);
+    transform: translateY(28px);
+    transition: opacity .6s ease-out, transform .6s ease-out;
   }
   .reveal.visible {
     opacity: 1;
@@ -320,7 +320,8 @@ export default function WeddingInvitation() {
     if (stage !== "details") return;
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
-      { threshold: 0.12, rootMargin: "0px 0px -50px 0px" }
+      // Reveal well BEFORE the section enters view, so it's already shown when you scroll to it
+      { threshold: 0, rootMargin: "0px 0px 40% 0px" }
     );
     sectionsRef.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
