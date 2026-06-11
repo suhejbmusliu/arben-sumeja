@@ -9,7 +9,7 @@ const t = {
   date:        { sq: "E SHTUNË, 8 GUSHT 2026",    tr: "CUMARTESİ, 8 AĞUSTOS 2026" },
   time:        { sq: "ORA 19:00",                  tr: "SAAT 19:00" },
   countdown:   { sq: "Festa Fillon",               tr: "Kutlama Başlıyor" },
-  soonSee:     { sq: "Shihemi së shpejti 💫",      tr: "Yakında görüşürüz 💫" },
+  soonSee:     { sq: "Shihemi së shpejti ",      tr: "Yakında görüşürüz " },
   couple:      { sq: "ÇIFTI I LUMTUR",             tr: "MUTLU ÇİFT" },
   together:    { sq: "Bashkë përgjithmonë",        tr: "Sonsuza dek birlikte" },
   quote:       { sq: "Dashuria është mrekullia jonë, besnikëria është forca jonë, dhe bashkë jemi të plotë", tr: "Aşk mucizemizdır, sadakat gücümüzdür ve birlikte bütünüz" },
@@ -441,10 +441,10 @@ export default function WeddingInvitation() {
 
           <div style={{ height:1, background:"linear-gradient(to right,transparent,rgba(255,255,255,.5),transparent)", maxWidth:200, margin:"18px auto" }} />
 
-          <p className="font-caps" style={{ color:"rgba(255,255,255,.92)", fontSize:"15px", letterSpacing:".22em", margin:0 }}>
+          <p className="font-caps" style={{ color:"rgba(255,255,255,.95)", fontSize:"20px", letterSpacing:".18em", margin:0, textShadow:"0 1px 8px rgba(0,0,0,.5)" }}>
             {t.date[lang]}
           </p>
-          <p className="font-caps" style={{ color:"rgba(255,255,255,.78)", fontSize:"13px", letterSpacing:".18em", margin:"6px 0 0" }}>
+          <p className="font-caps" style={{ color:"rgba(255,255,255,.85)", fontSize:"17px", letterSpacing:".16em", margin:"8px 0 0", textShadow:"0 1px 8px rgba(0,0,0,.5)" }}>
             {t.time[lang]}
           </p>
         </div>
@@ -474,22 +474,16 @@ export default function WeddingInvitation() {
         {/* Quote overlaid inside the frame */}
         <div style={{ position:"relative", zIndex:2, textAlign:"center", width:"100%", padding:"0 52px", marginTop:"20%" }}>
 
-          <span style={{ fontFamily:"Georgia,serif", fontSize:"68px", lineHeight:"0.3", color:"var(--gold)", opacity:.45, display:"block" }}>"</span>
+          <span style={{ fontFamily:"Georgia,serif", fontSize:"60px", lineHeight:"0.3", color:"var(--gold)", opacity:.45, display:"block" }}>"</span>
 
-          <p className="font-serif" style={{ fontSize:"clamp(22px,6.5vw,28px)", lineHeight:1.85, fontStyle:"italic", color:"var(--ink)", margin:"18px 0 0" }}>
+          <p className="font-serif" style={{ fontSize:"clamp(25px,5vw,21px)", lineHeight:1.7, fontStyle:"italic", color:"var(--ink)", margin:"16px 0 0" }}>
             {lang === "sq"
               ? <>"Dashuria nuk është vetëm<br />një ndjenjë — është zgjedhja<br />që bën çdo ditë,<br />me zemër të plotë."</>
               : <>"Aşk sadece bir duygu değil —<br />her gün tam bir kalpte<br />verilen karardır."</>
             }
           </p>
 
-          <span style={{ fontFamily:"Georgia,serif", fontSize:"68px", lineHeight:"0.3", color:"var(--gold)", opacity:.45, display:"block", transform:"rotate(180deg)", marginTop:"18px" }}>"</span>
-
-          <div style={{ height:1, background:"linear-gradient(to right,transparent,var(--gold),transparent)", maxWidth:160, margin:"22px auto", opacity:.45 }} />
-
-          <p className="font-script" style={{ fontSize:"40px", color:"var(--gold)", margin:0 }}>
-            Arben & Sumeja
-          </p>
+          <span style={{ fontFamily:"Georgia,serif", fontSize:"60px", lineHeight:"0.3", color:"var(--gold)", opacity:.45, display:"block", transform:"rotate(180deg)", marginTop:"16px" }}>"</span>
         </div>
       </section>
 
@@ -591,7 +585,7 @@ export default function WeddingInvitation() {
 
           <div className="divider" style={{ margin:"20px auto" }} />
 
-          <p className="font-serif" style={{ fontSize:"clamp(17px,5vw,21px)", lineHeight:1.85, fontStyle:"italic", color:"var(--ink)", margin:0 }}>
+          <p className="font-serif" style={{ fontSize:"clamp(25px,5vw,21px)", lineHeight:1.85, fontStyle:"italic", color:"var(--ink)", margin:0 }}>
             {lang === "sq" ? (
               <>Çdo dashuri ka historinë e vet,<br />çdo zemër ka zanafillën e vet.<br />Në 8 Gusht 2026,<br />historia jonë bëhet e plotë.</>
             ) : (
@@ -604,7 +598,7 @@ export default function WeddingInvitation() {
           <p className="font-script" style={{ fontSize:"clamp(32px,10vw,42px)", color:"var(--gold)", margin:0 }}>
             Arben & Sumeja
           </p>
-          <p className="font-caps" style={{ fontSize:"14px", color:"var(--muted)", letterSpacing:".22em", margin:"10px 0 0" }}>
+          <p className="font-caps" style={{ fontSize:"19px", color:"var(--muted)", letterSpacing:".22em", margin:"10px 0 0" }}>
             {lang === "sq" ? "08 · 08 · 2026" : "08 · 08 · 2026"}
           </p>
         </div>
@@ -663,7 +657,7 @@ export default function WeddingInvitation() {
           </h2>
 
           <p className="font-serif" style={{ fontSize:"24px", color:"var(--muted)", margin:"8px 0 0" }}>
-            {lang === "sq" ? "Vizebego / Skopje" : "Vizebego / Skopje"}
+            {lang === "sq" ? "Vizebeg / Skopje" : "Vizebeg / Skopje"}
           </p>
           <p className="font-caps" style={{ fontSize:"17px", color:"var(--muted)", margin:"6px 0 0" }}>
             {lang === "sq" ? "ORA 19:00" : "SAAT 19:00"}
@@ -681,7 +675,7 @@ export default function WeddingInvitation() {
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              title="New Star Restaurant - Vizebego / Skopje"
+              title="New Star Restaurant - Vizebeg / Skopje"
             />
           </div>
 
@@ -703,13 +697,13 @@ export default function WeddingInvitation() {
           </div>
 
           {/* Footer */}
-          <p className="font-script" style={{ fontSize:"40px", color:"var(--gold)", margin:"36px 0 0" }}>
-            Arben & Sumeja
+          <p className="font-serif" style={{ fontSize:"25px", fontStyle:"italic", color:"var(--muted)", margin:"12px 0 0" }}>
+            Me rrespekt, familja Nuredin
           </p>
-          <p className="font-serif" style={{ fontSize:"16px", fontStyle:"italic", color:"var(--muted)", margin:"10px 0 0" }}>
-            Me rrespekt, familja Nuredini
+          <p className="font-caps" style={{ fontSize:"19px", color:"var(--muted)", letterSpacing:".18em", margin:"8px 0 0" }}>
+            RSVP: 070 403 703
           </p>
-          <p className="font-caps" style={{ fontSize:"14px", color:"var(--muted)", letterSpacing:".25em", margin:"10px 0 0" }}>
+          <p className="font-caps" style={{ fontSize:"18px", color:"var(--muted)", letterSpacing:".25em", margin:"14px 0 0" }}>
             08 · 08 · 2026
           </p>
         </div>
