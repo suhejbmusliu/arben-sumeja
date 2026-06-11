@@ -72,8 +72,8 @@ const STYLES = `
 
   html, body {
     margin: 0; padding: 0;
-    overflow-x: hidden;
-    max-width: 100vw;
+    width: 100%;
+    overflow-x: clip;          /* clip (not hidden) — avoids iOS Safari scroll-container conflict that snaps page back to top */
     background: var(--cream);
   }
 
@@ -85,7 +85,7 @@ const STYLES = `
   /* ── PAGE CONTAINER ── */
   .inv-page {
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
     background: var(--cream);
   }
 
