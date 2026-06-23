@@ -16,7 +16,7 @@ const t = {
   celebration: { sq: "NJË FESTË E DASHURISË",     tr: "AŞKIN KUTLAMASI" },
   location:    { sq: "VENDNDODHJA",                tr: "KONUM" },
   openMaps:    { sq: "HAP NË GOOGLE MAPS",         tr: "GOOGLE HARİTALARDA AÇ" },
-  closing:     { sq: "Me padurim presim të festojmë së bashku me ju, për mos ardhje na lajmroni paraprakisht.", tr: "Sizinle birlikte kutlamayı dört gözle bekliyoruz, gelmemeniz durumunda lütfen önceden haber verin." },
+  closing:     { sq: "Me padurim presim të festojmë së bashku me ju. Ju lutemi na lajmëroni paraprakisht për pjesëmarrjen tuaj.", tr: "Sizinle birlikte kutlamayı dört gözle bekliyoruz. Katılımınızı lütfen önceden bize bildirin." },
   days:        { sq: "Ditë",  tr: "Gün" },
   hours:       { sq: "Orë",   tr: "Saat" },
   minutes:     { sq: "Min",   tr: "Dak" },
@@ -701,10 +701,7 @@ export default function WeddingInvitation() {
             Me rrespekt, familja Nuredin
           </p>
           <p className="font-caps" style={{ fontSize:"19px", color:"var(--muted)", letterSpacing:".18em", margin:"8px 0 0" }}>
-            RSVP: 070 403 703
-          </p>
-          <p className="font-caps" style={{ fontSize:"18px", color:"var(--muted)", letterSpacing:".25em", margin:"14px 0 0" }}>
-            08 · 08 · 2026
+            RSVP: 070 403 703<br />071 298 123
           </p>
         </div>
       </section>
